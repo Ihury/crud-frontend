@@ -1,0 +1,44 @@
+<div class="container mt-2">
+  <div *ngIf="!userAccessToken" style="float: right;">
+    <a routerLink="login" class="btn btn-success">Login</a>
+  </div>
+  <div *ngIf="userAccessToken" class="login" style="float: right;">
+    Logado como: {{user.nome}}
+    <a routerLink="logout" class="btn btn-danger">Logout</a>
+  </div>
+  <div *ngIf="user && user.admin" class="gestao">
+    <h1>Gestão de usuários</h1>
+    <a routerLink="create" class="btn btn-success">Criar</a>
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="user && user.id" class="cadastros">
+    <h1>Usuários cadastrados</h1>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar"
+        aria-describedby="button-addon2" id="search" (keyup)="search()">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="clearSearch()"
+          style="background-color: white;">X</button>
+      </div>
+    </div>
+
+
+    <div class="usuarios mt-5">
+      <ul class="list-group">
+        <li *ngFor="let usuario of readData" class="list-group-item" id="usuario">
+          <p id="nome"><b>Nome:</b>&nbsp;<span id="value">{{usuario.nome}}</span></p>
+          <p id="login"><b>Login:</b>&nbsp;<span id="value">{{usuario.login}}</span></p>
+          <p id="cpf"><b>Cpf:</b>&nbsp;<span id="value">{{usuario.cpf}}</span></p>
+          <p id="status"><b>Status:</b>&nbsp;<span id="value">{{usuario.status}}</span></p>
+          <div *ngIf="user && user.admin" class="gestao-2">
+            <a routerLink="create/{{usuario.id}}" class="btn btn-primary">Editar</a> &nbsp;
+            <a routerLink="delete/{{usuario.id}}" class="btn btn-danger">Deletar</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

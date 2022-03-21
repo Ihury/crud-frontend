@@ -1,0 +1,16 @@
+<div class="container mt-5">
+
+  <form [formGroup]="loginForm">
+    <div class="col-lg-4 mt-2">
+      <input type="text" class="form-control" formControlName="username" placeholder="Informe o username">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <input type="password" class="form-control" formControlName="password" placeholder="Informe a senha">
+    </div>
+
+    <div class="col-lg-4 mt-2" (click)="loginSubmit()">
+      <button class="btn btn-success">Login</button> &nbsp;
+      <a routerLink="/" class="btn btn-primary">Voltar</a>
+    </div>
+  </form>
+</div>

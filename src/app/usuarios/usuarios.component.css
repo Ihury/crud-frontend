@@ -1,0 +1,13 @@
+.list-group-item {
+  margin: 4px;
+  transition: 0.5s;
+  background-color: white;
+}
+
+.list-group-item:hover {
+  background-color: #dad5d5;
+}
+
+h1 {
+  color: white
+}

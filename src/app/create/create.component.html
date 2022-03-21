@@ -1,0 +1,48 @@
+<div class="container mt-5">
+
+  <form [formGroup]="userForm">
+    <div class="col-lg-4 mt-2">
+      <label for="nome" class="form-label">Nome:</label>
+      <input type="text" class="form-control" formControlName="nome" placeholder="Informe o nome" id="nome">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <label for="cpf" class="form-label">Cpf:</label>
+      <input type="text" class="form-control" formControlName="cpf" placeholder="Informe o cpf" id="cpf" maxlength="14" (input)="cpfMask($event)">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <label for="login" class="form-label">Login:</label>
+      <input type="text" class="form-control" formControlName="login" placeholder="Informe o login" id="login">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <label for="senha" class="form-label">Senha:</label>
+      <input type="password" class="form-control" formControlName="senha" placeholder="Informe a senha" id="senha">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <label for="status" class="form-label">Status:</label>
+      <input type="text" class="form-control" formControlName="status" placeholder="Informe o status" id="status">
+    </div>
+    <div class="col-lg-4 mt-2">
+      <label for="observacao" class="form-label">Observação:</label>
+      <input type="text" class="form-control" formControlName="observacao" placeholder="Informe a observação" id="observacao">
+    </div>
+    <div class="form-check">
+      <br>
+      <input formControlName="admin" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Este usuário é um administrador?
+      </label>      
+    </div>
+
+    <div *ngIf="!getParamId" class="col-lg-4 mt-2" (click)="userSubmit()">
+      <br>
+      <button class="btn btn-success">Criar</button>&nbsp;
+      <a routerLink="/" class="btn btn-primary">Voltar</a>
+    </div>
+    <div *ngIf="getParamId" class="col-lg-4 mt-2" (click)="userUpdate()">
+      <br>
+      <button class="btn btn-primary">Atualizar</button>&nbsp;
+      <a routerLink="/" class="btn btn-primary">Voltar</a>
+    </div>
+  </form>
+
+</div>
